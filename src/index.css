@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+
+    /* Primary Palette: Deep Berry & Warm Rose */
+    --color-plum-900: #2D0B16;
+    --color-plum-800: #4A1525;
+    --color-plum-700: #641C33;
+    --color-plum-600: #781D42;
+    --color-rose-500: #C85C74;
+    --color-rose-400: #DE738A;
+    --color-rose-300: #F3ABB9;
+    --color-rose-100: #FCE8ED;
+    --color-rose-50:  #FFF5F7;
+
+    /* Calming Earth & Coral */
+    --color-coral-500: #E27B66;
+    --color-coral-100: #FCEEEB;
+    --color-earth-700: #5C3D2E;
+    --color-earth-500: #8A5A44;
+    --color-earth-100: #F5EEEB;
+
+    /* Backgrounds */
+    --color-bg-main: #FAF7F5;
+    --color-bg-card: #FFFFFF;
+    --color-bg-muted: #F3ECE8;
+
+    /* Safe Green / Calm Sage */
+    --color-sage-600: #2F614C;
+    --color-sage-500: #3F755E;
+    --color-sage-100: #EBF4F0;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-main);
+    color: #2D2327;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+/* Custom Utilities */
+.touch-paint {
+  touch-action: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 29, 66, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 29, 66, 0.3);
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(243, 236, 232, 0.8);
+}
+
+.glass-plum {
+  background: rgba(74, 21, 37, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Pulse animation for active paint pointer */
+@keyframes soft-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+.animate-soft-pulse {
+  animation: soft-pulse 2s ease-in-out infinite;
+}
